@@ -2651,7 +2651,7 @@ sub YAMAHA_MC_httpRequestQueue($$$;$)
 	  or ($options->{unless_in_queue} and defined($arg) and grep( ($_->{cmd} eq $cmd and defined($_->{arg}) and $_->{arg} eq $arg) ,@{$device->{helper}{CMD_QUEUE}}))
 	  )
 	    {
-		my $alreadyinqueue = 1;
+		$alreadyinqueue = 1;
         Log3 $name, 4, "YAMAHA_MC_httpRequestQueue ($name) - comand \"$cmd".(defined($arg) ? " ".$arg : "")."\" is already in queue, skip adding another one";
         }
 	}
